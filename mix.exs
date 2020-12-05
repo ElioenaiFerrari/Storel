@@ -43,7 +43,13 @@ defmodule Storel.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:argon2_elixir, "~> 2.0"}
+      {:argon2_elixir, "~> 2.0"},
+      {:absinthe, "~> 1.4", override: true},
+      {:absinthe_plug, "~> 1.5"},
+      {:absinthe_relay, "~> 1.4"},
+      {:absinthe_ecto, "~> 0.1.3"},
+      {:absinthe_error_payload, "~> 1.1"},
+      {:absinthe_phoenix, "~> 2.0.0"}
     ]
   end
 
