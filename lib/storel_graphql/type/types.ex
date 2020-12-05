@@ -3,4 +3,5 @@ defmodule StorelGraphql.Schema.Types do
   alias StorelGraphql.Schema.Types
 
   import_types(Types.CustomerType)
+  import_types(Types.ProductType)
 end

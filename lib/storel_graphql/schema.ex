@@ -10,6 +10,11 @@ defmodule StorelGraphql.Schema do
     field :customers, list_of(:customer_type) do
       resolve(&Resolvers.CustomerResolver.list_customers/3)
     end
+
+    @desc "Get all products"
+    field :products, list_of(:product_type) do
+      resolve(&Resolvers.ProductResolver.list_products/3)
+    end
   end
 
   # mutation do
