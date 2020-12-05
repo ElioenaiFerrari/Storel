@@ -1,6 +1,7 @@
 defmodule StorelGraphql.Schema do
   use Absinthe.Schema
   alias StorelGraphql.Schema
+  alias StorelGraphql.Resolvers
 
   import_types(Schema.Types)
 

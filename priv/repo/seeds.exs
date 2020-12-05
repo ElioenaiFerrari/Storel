@@ -13,7 +13,7 @@
 Storel.Customers.create_customer(%{
   email: "elioenaiferrari2@gmail.com",
   password: "123123",
-  password_confirmation: "1231",
+  password_confirmation: "123123",
   first_name: "Elioenai",
   last_name: "Ferrari",
   role: "admin"
