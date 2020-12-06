@@ -8,6 +8,14 @@ defmodule Storel.Products do
 
   alias Storel.Products.Product
 
+  def filter_by_id_quantity(%{id: id, quantity: quantity}) do
+    query =
+      from product in Product,
+        where: product.id == ^id and product.quantity >= ^quantity
+
+    Repo.one(query)
+  end
+
   @doc """
   Returns the list of products.
 

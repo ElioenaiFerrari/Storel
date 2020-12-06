@@ -30,7 +30,9 @@ defmodule Storel.OrderProductsTest do
     end
 
     test "create_order_product/1 with valid data creates a order_product" do
-      assert {:ok, %OrderProduct{} = order_product} = OrderProducts.create_order_product(@valid_attrs)
+      assert {:ok, %OrderProduct{} = order_product} =
+               OrderProducts.create_order_product(@valid_attrs)
+
       assert order_product.price == Decimal.new("120.5")
       assert order_product.quantity == 42
     end
@@ -41,21 +43,30 @@ defmodule Storel.OrderProductsTest do
 
     test "update_order_product/2 with valid data updates the order_product" do
       order_product = order_product_fixture()
-      assert {:ok, %OrderProduct{} = order_product} = OrderProducts.update_order_product(order_product, @update_attrs)
+
+      assert {:ok, %OrderProduct{} = order_product} =
+               OrderProducts.update_order_product(order_product, @update_attrs)
+
       assert order_product.price == Decimal.new("456.7")
       assert order_product.quantity == 43
     end
 
     test "update_order_product/2 with invalid data returns error changeset" do
       order_product = order_product_fixture()
-      assert {:error, %Ecto.Changeset{}} = OrderProducts.update_order_product(order_product, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               OrderProducts.update_order_product(order_product, @invalid_attrs)
+
       assert order_product == OrderProducts.get_order_product!(order_product.id)
     end
 
     test "delete_order_product/1 deletes the order_product" do
       order_product = order_product_fixture()
       assert {:ok, %OrderProduct{}} = OrderProducts.delete_order_product(order_product)
-      assert_raise Ecto.NoResultsError, fn -> OrderProducts.get_order_product!(order_product.id) end
+
+      assert_raise Ecto.NoResultsError, fn ->
+        OrderProducts.get_order_product!(order_product.id)
+      end
     end
 
     test "change_order_product/1 returns a order_product changeset" do

@@ -21,6 +21,7 @@ defmodule StorelGraphql.Schema do
 
   payload_object(:customer_payload, :customer_type)
   payload_object(:product_payload, :product_type)
+  payload_object(:order_payload, :order_type)
 
   mutation do
     @desc "Create new customer"
@@ -34,6 +35,13 @@ defmodule StorelGraphql.Schema do
     field :create_product, :product_payload do
       arg(:product, non_null(:product_input_type))
       resolve(&Resolvers.ProductResolver.create_product/3)
+      middleware(&build_payload/2)
+    end
+
+    @desc "Create new order"
+    field :create_order, :order_payload do
+      arg(:order, non_null(:order_input_type))
+      resolve(&Resolvers.OrderResolver.create_order/3)
       middleware(&build_payload/2)
     end
   end
